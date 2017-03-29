@@ -175,7 +175,7 @@ export default class WysiwygEditor extends Component {
     this.focusHandler.onEditorMouseDown();
   }
 
-  onTab: Function = (event): boolean => {
+  onTab: Function = (event): void => {
     const { onTab } = this.props;
     if (!onTab || !onTab(event)) {
       const editorState = changeDepth(this.state.editorState, event.shiftKey ? -1 : 1, 4);
@@ -186,7 +186,7 @@ export default class WysiwygEditor extends Component {
     }
   };
 
-  onUpDownArrow: Function = (event): boolean => {
+  onUpDownArrow: Function = (event): void => {
     if (SuggestionHandler.isOpen()) {
       event.preventDefault();
     }
