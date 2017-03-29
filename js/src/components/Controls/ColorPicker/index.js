@@ -35,7 +35,7 @@ class ColorPicker extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillReceiveProps(properties: Object) {
+  componentWillReceiveProps(properties) {
     const newState = {};
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {
@@ -75,7 +75,7 @@ class ColorPicker extends Component {
     });
   };
 
-  toggleColor: Function = (style: string, color: string) => {
+  toggleColor: Function = (style, color) => {
     const { editorState, onChange } = this.props;
     const newState = toggleCustomInlineStyle(
       editorState,

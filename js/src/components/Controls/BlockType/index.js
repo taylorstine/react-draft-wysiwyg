@@ -31,7 +31,7 @@ class BlockType extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillReceiveProps(properties: Object) {
+  componentWillReceiveProps(properties) {
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {
       this.setState({
@@ -68,7 +68,7 @@ class BlockType extends Component {
     });
   };
 
-  toggleBlockType: Function = (blockType: string) => {
+  toggleBlockType: Function = (blockType) => {
     const { editorState, onChange } = this.props;
     const newState = RichUtils.toggleBlockType(
       editorState,

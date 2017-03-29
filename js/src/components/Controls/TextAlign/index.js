@@ -59,7 +59,7 @@ export default class TextAlign extends Component {
     });
   };
 
-  addBlockAlignmentData:Function = (value: string) => {
+  addBlockAlignmentData:Function = (value) => {
     const { editorState, onChange } = this.props;
     const { currentTextAlignment } = this.state;
     if (currentTextAlignment !== value) {

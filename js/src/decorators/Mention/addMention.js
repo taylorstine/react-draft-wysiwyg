@@ -5,7 +5,7 @@ import {
 import { getSelectedBlock } from 'draftjs-utils';
 
 export default function addMention(
-  editorState: EditorState,
+  editorState,
   onChange: Function,
   separator: string,
   trigger: string,

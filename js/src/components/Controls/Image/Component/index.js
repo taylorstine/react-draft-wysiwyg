@@ -27,7 +27,7 @@ class LayoutComponent extends Component {
     width: this.props.config.defaultSize.width,
   };
 
-  componentWillReceiveProps(props: Object) {
+  componentWillReceiveProps(props) {
     if (this.props.expanded && !props.expanded) {
       this.setState({
         imgSrc: '',
@@ -45,7 +45,7 @@ class LayoutComponent extends Component {
     }
   }
 
-  updateValue: Function = (event: Object) => {
+  updateValue: Function = (event) => {
     this.setState({
       [`${event.target.name}`]: event.target.value,
     });
@@ -76,13 +76,13 @@ class LayoutComponent extends Component {
     onChange(imgSrc, height, width);
   };
 
-  addImageFromSrcLink: Function = (imgSrc: string) => {
+  addImageFromSrcLink: Function = (imgSrc) => {
     const { height, width } = this.state;
     const { onChange } = this.props;
     onChange(imgSrc, height, width);
   };
 
-  onImageDrop: Function = (event: Object) => {
+  onImageDrop: Function = (event) => {
     event.preventDefault();
     event.stopPropagation();
     this.setState({
@@ -91,20 +91,20 @@ class LayoutComponent extends Component {
     this.uploadImage(event.dataTransfer.files[0]);
   };
 
-  onDragEnter: Function = (event: Object) => {
+  onDragEnter: Function = (event) => {
     this.stopPropagation(event);
     this.setState({
       dragEnter: true,
     });
   };
 
-  selectImage: Function = (event: Object) => {
+  selectImage: Function = (event) => {
     if (event.target.files && event.target.files.length > 0) {
       this.uploadImage(event.target.files[0]);
     }
   };
 
-  uploadImage: Function = (file: Object) => {
+  uploadImage: Function = (file) => {
     this.toggleShowImageLoading();
     const { uploadCallback } = this.props.config;
     uploadCallback(file)
@@ -127,7 +127,7 @@ class LayoutComponent extends Component {
     event.stopPropagation();
   }
 
-  stopPropagation: Function = (event: Object) => {
+  stopPropagation: Function = (event) => {
     if (!this.fileUpload) {
       event.preventDefault();
       event.stopPropagation();

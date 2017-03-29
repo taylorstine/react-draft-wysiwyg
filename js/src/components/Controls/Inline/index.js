@@ -30,7 +30,7 @@ export default class Inline extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillReceiveProps(properties: Object) {
+  componentWillReceiveProps(properties) {
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {
       this.setState({
@@ -44,7 +44,7 @@ export default class Inline extends Component {
     modalHandler.deregisterCallBack(this.expandCollapse);
   }
 
-  toggleInlineStyle: Function = (style: string) => {
+  toggleInlineStyle: Function = (style) => {
     const newStyle = style === 'MONOSPACE' ? 'CODE' : style;
     const { editorState, onChange } = this.props;
     let newState = RichUtils.toggleInlineStyle(

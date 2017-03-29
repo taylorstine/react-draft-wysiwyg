@@ -31,7 +31,7 @@ export default class History extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillReceiveProps(properties: Object) {
+  componentWillReceiveProps(properties) {
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {
       this.setState({

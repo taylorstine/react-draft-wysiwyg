@@ -25,7 +25,7 @@ export default class LayoutComponent extends Component {
     { type: 'indent', value: 'indent' },
     { type: 'outdent', value: 'outdent' }];
 
-  toggleBlockType: Function = (blockType: String) => {
+  toggleBlockType: Function = (blockType) => {
     const { onChange } = this.props;
     onChange(blockType);
   };

@@ -199,14 +199,14 @@ export default class WysiwygEditor extends Component {
     }
   };
 
-  onWrapperBlur: Function = (event: Object) => {
+  onWrapperBlur: Function = (event) => {
     const { onBlur } = this.props;
     if (onBlur && this.focusHandler.isEditorBlur(event)) {
       onBlur(event);
     }
   };
 
-  onChange: Function = (editorState: Object) => {
+  onChange: Function = (editorState) => {
     const { readOnly, onEditorStateChange } = this.props;
     if (!readOnly) {
       if (onEditorStateChange) {
@@ -232,11 +232,11 @@ export default class WysiwygEditor extends Component {
     });
   };
 
-  setWrapperReference: Function = (ref: Object) => {
+  setWrapperReference: Function = (ref) => {
     this.wrapper = ref;
   };
 
-  setEditorReference: Function = (ref: Object) => {
+  setEditorReference: Function = (ref) => {
     this.editor = ref;
   };
 
@@ -328,7 +328,7 @@ export default class WysiwygEditor extends Component {
     });
   };
 
-  handleKeyCommand: Function = (command: Object) => {
+  handleKeyCommand: Function = (command) => {
     const { editorState } = this.state;
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
@@ -338,7 +338,7 @@ export default class WysiwygEditor extends Component {
     return false;
   };
 
-  handleReturn: Function = (event: Object) => {
+  handleReturn: Function = (event) => {
     if (SuggestionHandler.isOpen()) {
       return true;
     }
@@ -350,7 +350,7 @@ export default class WysiwygEditor extends Component {
     return false;
   };
 
-  preventDefault: Function = (event: Object) => {
+  preventDefault: Function = (event) => {
     if (event.target.tagName === 'INPUT') {
       this.focusHandler.onInputMouseDown();
     } else {

@@ -32,7 +32,7 @@ export default class Dropdown extends Component {
     }
   }
 
-  onChange: Function = (value: any) => {
+  onChange: Function = (value) => {
     const { onChange } = this.props;
     if (onChange) {
       onChange(value);
@@ -40,7 +40,7 @@ export default class Dropdown extends Component {
     this.toggleExpansion();
   };
 
-  setHighlighted: Function = (highlighted: number) => {
+  setHighlighted: Function = (highlighted) => {
     this.setState({
       highlighted,
     });
@@ -108,7 +108,7 @@ export default class Dropdown extends Component {
 }
 
 
-  // onKeyDown: Function = (event: Object) => {
+  // onKeyDown: Function = (event) => {
   //   const { expanded, children, doCollapse } = this.props;
   //   const { highlighted } = this.state;
   //   let actioned = false;

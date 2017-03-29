@@ -34,13 +34,13 @@ class LayoutComponent extends Component {
     }
   }
 
-  updateValue: Function = (event: Object) => {
+  updateValue: Function = (event) => {
     this.setState({
       [`${event.target.name}`]: event.target.value,
     });
   };
 
-  onChange: Function = (event: Object) => {
+  onChange: Function = (event) => {
     const { onChange } = this.props;
     const { embeddedLink, height, width } = this.state;
     onChange(embeddedLink, height, width);

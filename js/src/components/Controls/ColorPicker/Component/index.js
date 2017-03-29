@@ -34,7 +34,7 @@ class LayoutComponent extends Component {
     });
   };
 
-  onChange: Function = (color: string) => {
+  onChange: Function = (color) => {
     const { onChange } = this.props;
     const { currentStyle } = this.state;
     onChange(currentStyle, color);

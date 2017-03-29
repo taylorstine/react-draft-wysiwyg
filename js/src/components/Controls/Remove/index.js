@@ -28,7 +28,7 @@ export default class Remove extends Component {
     modalHandler.deregisterCallBack(this.expandCollapse);
   }
 
-  removeAllInlineStyles: Function = (editorState: EditorState) => {
+  removeAllInlineStyles: Function = (editorState) => {
     let contentState = editorState.getCurrentContent();
     [
       'BOLD',

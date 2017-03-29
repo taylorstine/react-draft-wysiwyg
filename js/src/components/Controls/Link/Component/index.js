@@ -49,7 +49,7 @@ class LayoutComponent extends Component {
     onChange('add', linkTitle, linkTarget);
   };
 
-  updateValue: Function = (event: Object) => {
+  updateValue: Function = (event) => {
     this.setState({
       [`${event.target.name}`]: event.target.value,
     });

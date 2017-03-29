@@ -33,7 +33,7 @@ export default class FontFamily extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillReceiveProps(properties: Object) {
+  componentWillReceiveProps(properties) {
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {
       this.setState({
@@ -71,7 +71,7 @@ export default class FontFamily extends Component {
     });
   };
 
-  toggleFontFamily: Function = (fontFamily: string) => {
+  toggleFontFamily: Function = (fontFamily) => {
     const { editorState, onChange } = this.props;
     const newState = toggleCustomInlineStyle(
       editorState,

@@ -36,7 +36,7 @@ class Link extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillReceiveProps(properties: Object) {
+  componentWillReceiveProps(properties) {
     const newState = {};
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {

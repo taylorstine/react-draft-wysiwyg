@@ -52,7 +52,7 @@ class ImageControl extends Component {
     });
   };
 
-  addImage: Function = (src: string, height: string, width: string) => {
+  addImage: Function = (src, height, width) => {
     const { editorState, onChange } = this.props;
     const entityKey = editorState
       .getCurrentContent()

@@ -31,7 +31,7 @@ export default class List extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillReceiveProps(properties: Object) {
+  componentWillReceiveProps(properties) {
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {
       this.setState({
@@ -68,7 +68,7 @@ export default class List extends Component {
     });
   };
 
-  onChange: Function = (value: string) => {
+  onChange: Function = (value) => {
     if (value === 'unordered-list-item' || value === 'ordered-list-item') {
       this.toggleBlockType(value);
     } else if (value === 'indent') {
@@ -78,7 +78,7 @@ export default class List extends Component {
     }
   };
 
-  toggleBlockType: Function = (blockType: String) => {
+  toggleBlockType: Function = (blockType) => {
     const { onChange, editorState } = this.props;
     const newState = RichUtils.toggleBlockType(
       editorState,

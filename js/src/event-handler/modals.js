@@ -5,13 +5,13 @@ export default class ModalHandler {
   editorFlag = false;
   suggestionFlag = false;
 
-  closeAllModals = (event: Object) => {
+  closeAllModals = (event) => {
     this.callBacks.forEach((callBack) => {
       callBack(event);
     });
   };
 
-  init = (wrapperId: string) => {
+  init = (wrapperId) => {
     const wrapper = document.getElementById(wrapperId); // eslint-disable-line no-undef
     wrapper.addEventListener('click', () => {
       this.editorFlag = true;
@@ -42,7 +42,7 @@ export default class ModalHandler {
     }
   }
 
-  closeModals = (event: Object) => {
+  closeModals = (event) => {
     this.closeAllModals(event);
   };
 
