@@ -27,7 +27,7 @@ class LayoutComponent extends Component {
     width: this.props.config.defaultSize.width,
   };
 
-  componentWillReceiveProps(props: Object): void {
+  componentWillReceiveProps(props: Object) {
     if (this.props.expanded && !props.expanded) {
       this.setState({
         imgSrc: '',
@@ -45,44 +45,44 @@ class LayoutComponent extends Component {
     }
   }
 
-  updateValue: Function = (event: Object): void => {
+  updateValue: Function = (event: Object) => {
     this.setState({
       [`${event.target.name}`]: event.target.value,
     });
   };
 
-  toggleShowImageLoading: Function = (): void => {
+  toggleShowImageLoading: Function = () => {
     const showImageLoading = !this.state.showImageLoading;
     this.setState({
       showImageLoading,
     });
   };
 
-  showImageURLOption: Function = (): void => {
+  showImageURLOption: Function = () => {
     this.setState({
       uploadHighlighted: false,
     });
   };
 
-  showImageUploadOption: Function = (): void => {
+  showImageUploadOption: Function = () => {
     this.setState({
       uploadHighlighted: true,
     });
   };
 
-  addImageFromState: Function = (): void => {
+  addImageFromState: Function = () => {
     const { imgSrc, height, width } = this.state;
     const { onChange } = this.props;
     onChange(imgSrc, height, width);
   };
 
-  addImageFromSrcLink: Function = (imgSrc: string): void => {
+  addImageFromSrcLink: Function = (imgSrc: string) => {
     const { height, width } = this.state;
     const { onChange } = this.props;
     onChange(imgSrc, height, width);
   };
 
-  onImageDrop: Function = (event: Object): void => {
+  onImageDrop: Function = (event: Object) => {
     event.preventDefault();
     event.stopPropagation();
     this.setState({
@@ -91,20 +91,20 @@ class LayoutComponent extends Component {
     this.uploadImage(event.dataTransfer.files[0]);
   };
 
-  onDragEnter: Function = (event: Object): void => {
+  onDragEnter: Function = (event: Object) => {
     this.stopPropagation(event);
     this.setState({
       dragEnter: true,
     });
   };
 
-  selectImage: Function = (event: Object): void => {
+  selectImage: Function = (event: Object) => {
     if (event.target.files && event.target.files.length > 0) {
       this.uploadImage(event.target.files[0]);
     }
   };
 
-  uploadImage: Function = (file: Object): void => {
+  uploadImage: Function = (file: Object) => {
     this.toggleShowImageLoading();
     const { uploadCallback } = this.props.config;
     uploadCallback(file)
@@ -127,7 +127,7 @@ class LayoutComponent extends Component {
     event.stopPropagation();
   }
 
-  stopPropagation: Function = (event: Object): void => {
+  stopPropagation: Function = (event: Object) => {
     if (!this.fileUpload) {
       event.preventDefault();
       event.stopPropagation();
@@ -136,7 +136,7 @@ class LayoutComponent extends Component {
     }
   };
 
-  renderAddImageModal(): Object {
+  renderAddImageModal() {
     const { imgSrc, uploadHighlighted, showImageLoading, dragEnter, height, width } = this.state;
     const { config: { popupClassName, uploadCallback, uploadEnabled, urlEnabled }, doCollapse, translations } = this.props;
     return (
@@ -252,7 +252,7 @@ class LayoutComponent extends Component {
     );
   }
 
-  render(): Object {
+  render() {
     const { config: { icon, className }, expanded, onExpandEvent } = this.props;
     return (
       <div

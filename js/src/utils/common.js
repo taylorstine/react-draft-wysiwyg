@@ -29,7 +29,7 @@ export function hasProperty(obj: Object, property: string) {
 /**
 * The function returns true if the string passed to it has no content.
 */
-export function isEmptyString(str: string): boolean {
+export function isEmptyString(str: string) {
   if (str === undefined || str === null || str.length === 0 || str.trim().length === 0) {
     return true;
   }

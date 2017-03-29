@@ -18,17 +18,17 @@ export default class Remove extends Component {
     expanded: false,
   }
 
-  componentWillMount(): void {
+  componentWillMount() {
     const { modalHandler } = this.props;
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     const { modalHandler } = this.props;
     modalHandler.deregisterCallBack(this.expandCollapse);
   }
 
-  removeAllInlineStyles: Function = (editorState: EditorState): void => {
+  removeAllInlineStyles: Function = (editorState: EditorState) => {
     let contentState = editorState.getCurrentContent();
     [
       'BOLD',
@@ -52,35 +52,35 @@ export default class Remove extends Component {
     return EditorState.push(editorState, contentState, 'change-inline-style');
   };
 
-  removeInlineStyles: Function = (): void => {
+  removeInlineStyles: Function = () => {
     const { editorState, onChange } = this.props;
     onChange(this.removeAllInlineStyles(editorState));
   };
 
-  expandCollapse: Function = (): void => {
+  expandCollapse: Function = () => {
     this.setState({
       expanded: this.signalExpanded,
     });
     this.signalExpanded = false;
   }
 
-  onExpandEvent: Function = (): void => {
+  onExpandEvent: Function = () => {
     this.signalExpanded = !this.state.expanded;
   };
 
-  doExpand: Function = (): void => {
+  doExpand: Function = () => {
     this.setState({
       expanded: true,
     });
   };
 
-  doCollapse: Function = (): void => {
+  doCollapse: Function = () => {
     this.setState({
       expanded: false,
     });
   };
 
-  render(): Object {
+  render() {
     const { config, translations } = this.props;
     const { expanded } = this.state;
     const RemoveComponent = config.component || LayoutComponent;

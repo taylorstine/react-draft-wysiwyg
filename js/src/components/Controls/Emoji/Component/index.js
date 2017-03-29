@@ -16,12 +16,12 @@ class LayoutComponent extends Component {
     config: PropTypes.object,
   };
 
-  onChange: Function = (event: Object): void => {
+  onChange: Function = (event: Object) => {
     const { onChange } = this.props;
     onChange(event.target.innerHTML);
   };
 
-  renderEmojiModal(): Object {
+  renderEmojiModal() {
     const { config: { popupClassName, emojis } } = this.props;
     return (
       <div
@@ -40,7 +40,7 @@ class LayoutComponent extends Component {
     );
   }
 
-  render(): Object {
+  render() {
     const { config: { icon, className }, expanded, onExpandEvent } = this.props;
     return (
       <div

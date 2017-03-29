@@ -24,7 +24,7 @@ export default class FontSize extends Component {
     currentFontSize: undefined,
   };
 
-  componentWillMount(): void {
+  componentWillMount() {
     const { editorState, modalHandler } = this.props;
     if (editorState) {
       this.setState({
@@ -35,7 +35,7 @@ export default class FontSize extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentDidMount(): void {
+  componentDidMount() {
     const editorElm = document.getElementsByClassName('DraftEditor-root');
     if (editorElm && editorElm.length > 0) {
       const styles = window.getComputedStyle(editorElm[0]);
@@ -47,7 +47,7 @@ export default class FontSize extends Component {
     }
   }
 
-  componentWillReceiveProps(properties: Object): void {
+  componentWillReceiveProps(properties: Object) {
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {
       this.setState({
@@ -57,29 +57,29 @@ export default class FontSize extends Component {
     }
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     const { modalHandler } = this.props;
     modalHandler.deregisterCallBack(this.expandCollapse);
   }
 
-  expandCollapse: Function = (): void => {
+  expandCollapse: Function = () => {
     this.setState({
       expanded: this.signalExpanded,
     });
     this.signalExpanded = false;
   }
 
-  onExpandEvent: Function = (): void => {
+  onExpandEvent: Function = () => {
     this.signalExpanded = !this.state.expanded;
   };
 
-  doExpand: Function = (): void => {
+  doExpand: Function = () => {
     this.setState({
       expanded: true,
     });
   };
 
-  doCollapse: Function = (): void => {
+  doCollapse: Function = () => {
     this.setState({
       expanded: false,
     });
@@ -98,7 +98,7 @@ export default class FontSize extends Component {
     }
   };
 
-  render(): Object {
+  render() {
     const { config, translations } = this.props;
     const { undoDisabled, redoDisabled, expanded, currentFontSize } = this.state
     const FontSizeComponent = config.component || LayoutComponent;

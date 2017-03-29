@@ -34,19 +34,19 @@ class LayoutComponent extends Component {
     }
   }
 
-  updateValue: Function = (event: Object): void => {
+  updateValue: Function = (event: Object) => {
     this.setState({
       [`${event.target.name}`]: event.target.value,
     });
   };
 
-  onChange: Function = (event: Object): void => {
+  onChange: Function = (event: Object) => {
     const { onChange } = this.props;
     const { embeddedLink, height, width } = this.state;
     onChange(embeddedLink, height, width);
   };
 
-  rendeEmbeddedLinkModal(): Object {
+  rendeEmbeddedLinkModal() {
     const { embeddedLink, height, width } = this.state;
     const { config: { popupClassName }, doCollapse, translations } = this.props;
     return (
@@ -107,7 +107,7 @@ class LayoutComponent extends Component {
     );
   }
 
-  render(): Object {
+  render() {
     const { config: { icon, className }, expanded, onExpandEvent } = this.props;
     return (
       <div

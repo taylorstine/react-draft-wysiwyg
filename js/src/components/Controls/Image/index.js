@@ -19,40 +19,40 @@ class ImageControl extends Component {
     expanded: false,
   };
 
-  componentWillMount(): void {
+  componentWillMount() {
     const { modalHandler } = this.props;
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     const { modalHandler } = this.props;
     modalHandler.deregisterCallBack(this.expandCollapse);
   }
 
-  expandCollapse: Function = (): void => {
+  expandCollapse: Function = () => {
     this.setState({
       expanded: this.signalExpanded,
     });
     this.signalExpanded = false;
   }
 
-  onExpandEvent: Function = (): void => {
+  onExpandEvent: Function = () => {
     this.signalExpanded = !this.state.expanded;
   };
 
-  doExpand: Function = (): void => {
+  doExpand: Function = () => {
     this.setState({
       expanded: true,
     });
   };
 
-  doCollapse: Function = (): void => {
+  doCollapse: Function = () => {
     this.setState({
       expanded: false,
     });
   };
 
-  addImage: Function = (src: string, height: string, width: string): void => {
+  addImage: Function = (src: string, height: string, width: string) => {
     const { editorState, onChange } = this.props;
     const entityKey = editorState
       .getCurrentContent()
@@ -67,7 +67,7 @@ class ImageControl extends Component {
     this.closeModal();
   };
 
-  render(): Object {
+  render() {
     const { config, translations } = this.props;
     const { expanded } = this.state
     const ImageComponent = config.component || LayoutComponent;

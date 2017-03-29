@@ -8,7 +8,7 @@ import {
   convertToRaw,
   convertFromRaw,
   CompositeDecorator,
-} from 'draft-js';
+  } from 'draft-js';
 import {
   changeDepth,
   setColors,
@@ -109,7 +109,7 @@ export default class WysiwygEditor extends Component {
     this.customStyleMap = getCustomStyleMap();
   }
 
-  componentWillMount(): void {
+  componentWillMount() {
     this.compositeDecorator = this.getCompositeDecorator();
     const editorState = this.createEditorState(this.compositeDecorator);
     this.setState({
@@ -117,7 +117,7 @@ export default class WysiwygEditor extends Component {
     });
   }
 
-  componentDidMount(): void {
+  componentDidMount() {
     this.modalHandler.init(this.wrapperId);
   }
   // todo: change decorators depending on properties recceived in componentWillReceiveProps.
@@ -155,13 +155,13 @@ export default class WysiwygEditor extends Component {
     this.customStyleMap = getCustomStyleMap();
   }
 
-  onEditorBlur: Function = (): void => {
+  onEditorBlur: Function = () => {
     this.setState({
       editorFocused: false,
     });
   };
 
-  onEditorFocus: Function = (event): void => {
+  onEditorFocus: Function = (event) => {
     const { onFocus } = this.props;
     this.setState({
       editorFocused: true,
@@ -171,11 +171,11 @@ export default class WysiwygEditor extends Component {
     }
   };
 
-  onEditorMouseDown: Function = (): void => {
+  onEditorMouseDown: Function = () => {
     this.focusHandler.onEditorMouseDown();
   }
 
-  onTab: Function = (event): void => {
+  onTab: Function = (event) => {
     const { onTab } = this.props;
     if (!onTab || !onTab(event)) {
       const editorState = changeDepth(this.state.editorState, event.shiftKey ? -1 : 1, 4);
@@ -186,13 +186,13 @@ export default class WysiwygEditor extends Component {
     }
   };
 
-  onUpDownArrow: Function = (event): void => {
+  onUpDownArrow: Function = (event) => {
     if (SuggestionHandler.isOpen()) {
       event.preventDefault();
     }
   };
 
-  onToolbarFocus: Function = (event): void => {
+  onToolbarFocus: Function = (event) => {
     const { onFocus } = this.props;
     if (onFocus && this.focusHandler.isToolbarFocused()) {
       onFocus(event);
@@ -206,7 +206,7 @@ export default class WysiwygEditor extends Component {
     }
   };
 
-  onChange: Function = (editorState: Object): void => {
+  onChange: Function = (editorState: Object) => {
     const { readOnly, onEditorStateChange } = this.props;
     if (!readOnly) {
       if (onEditorStateChange) {
@@ -220,7 +220,7 @@ export default class WysiwygEditor extends Component {
     }
   };
 
-  afterChange: Function = (editorState): void => {
+  afterChange: Function = (editorState) => {
     setTimeout(() => {
       const { onChange, onContentStateChange } = this.props;
       if (onChange) {
@@ -232,15 +232,15 @@ export default class WysiwygEditor extends Component {
     });
   };
 
-  setWrapperReference: Function = (ref: Object): void => {
+  setWrapperReference: Function = (ref: Object) => {
     this.wrapper = ref;
   };
 
-  setEditorReference: Function = (ref: Object): void => {
+  setEditorReference: Function = (ref: Object) => {
     this.editor = ref;
   };
 
-  getCompositeDecorator = ():void => {
+  getCompositeDecorator = () => {
     const decorators = [LinkDecorator];
     if (this.props.mention) {
       decorators.push(...getMentionDecorators({
@@ -322,13 +322,13 @@ export default class WysiwygEditor extends Component {
     return editorState;
   };
 
-  focusEditor: Function = (): void => {
+  focusEditor: Function = () => {
     setTimeout(() => {
       this.editor.focus();
     });
   };
 
-  handleKeyCommand: Function = (command: Object): boolean => {
+  handleKeyCommand: Function = (command: Object) => {
     const { editorState } = this.state;
     const newState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
@@ -338,7 +338,7 @@ export default class WysiwygEditor extends Component {
     return false;
   };
 
-  handleReturn: Function = (event: Object): boolean => {
+  handleReturn: Function = (event: Object) => {
     if (SuggestionHandler.isOpen()) {
       return true;
     }

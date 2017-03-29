@@ -22,25 +22,25 @@ class LayoutComponent extends Component {
     currentStyle: 'color',
   };
 
-  setCurrentStyleBgcolor: Function = (): void => {
+  setCurrentStyleBgcolor: Function = () => {
     this.setState({
       currentStyle: 'bgcolor',
     });
   };
 
-  setCurrentStyleColor: Function = (): void => {
+  setCurrentStyleColor: Function = () => {
     this.setState({
       currentStyle: 'color',
     });
   };
 
-  onChange: Function = (color: string): void => {
+  onChange: Function = (color: string) => {
     const { onChange } = this.props;
     const { currentStyle } = this.state;
     onChange(currentStyle, color);
   }
 
-  renderModal: Function = (): Object => {
+  renderModal: Function = () => {
     const { config: { popupClassName, colors }, currentState: { color, bgColor }, translations } = this.props;
     const { currentStyle } = this.state;
     const currentSelectedColor = (currentStyle === 'color') ? color : bgColor;
@@ -91,7 +91,7 @@ class LayoutComponent extends Component {
     );
   };
 
-  render(): Object {
+  render() {
     const { config: { icon, className }, expanded, onExpandEvent } = this.props;
     return (
       <div

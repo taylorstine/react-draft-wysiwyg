@@ -21,7 +21,7 @@ export default class Inline extends Component {
     currentState: PropTypes.object,
   };
 
-  renderInFlatList(): Object {
+  renderInFlatList() {
     const { config, currentState, onChange } = this.props;
     return (
       <div className={classNames('rdw-inline-wrapper', config.className)} aria-label="rdw-inline-control">
@@ -49,7 +49,7 @@ export default class Inline extends Component {
     );
   }
 
-  renderInDropDown(): Object {
+  renderInDropDown() {
     const {
       config,
       expanded,
@@ -97,7 +97,7 @@ export default class Inline extends Component {
     );
   }
 
-  render(): Object {
+  render() {
     const { config: { inDropdown } } = this.props;
     if (inDropdown) {
       return this.renderInDropDown();

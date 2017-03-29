@@ -23,7 +23,7 @@ class LayoutComponent extends Component {
     defaultFontFamily: undefined,
   };
 
-  componentDidMount(): void {
+  componentDidMount() {
     const editorElm = document.getElementsByClassName('DraftEditor-root');
     if (editorElm && editorElm.length > 0) {
       const styles = window.getComputedStyle(editorElm[0]);

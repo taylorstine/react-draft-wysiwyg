@@ -20,7 +20,7 @@ export default class TextAlign extends Component {
     currentState: PropTypes.object,
   };
 
-  renderInFlatList(): Object {
+  renderInFlatList() {
     const { config: { options, left, center, right, justify, className }, onChange, currentState: { textAlignment }} = this.props;
     return (
       <div className={classNames('rdw-text-align-wrapper', className)} aria-label="rdw-textalign-control">
@@ -72,7 +72,7 @@ export default class TextAlign extends Component {
     );
   }
 
-  renderInDropDown(): Object {
+  renderInDropDown() {
     const {
       config,
       expanded,
@@ -142,7 +142,7 @@ export default class TextAlign extends Component {
     );
   }
 
-  render(): Object {
+  render() {
     const { config: { inDropdown } } = this.props;
     if (inDropdown) {
       return this.renderInDropDown();

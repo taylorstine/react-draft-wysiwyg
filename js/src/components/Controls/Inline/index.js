@@ -20,7 +20,7 @@ export default class Inline extends Component {
     currentStyles: {},
   };
 
-  componentWillMount(): void {
+  componentWillMount() {
     const { editorState, modalHandler } = this.props;
     if (editorState) {
       this.setState({
@@ -30,7 +30,7 @@ export default class Inline extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillReceiveProps(properties: Object): void {
+  componentWillReceiveProps(properties: Object) {
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {
       this.setState({
@@ -39,12 +39,12 @@ export default class Inline extends Component {
     }
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     const { modalHandler } = this.props;
     modalHandler.deregisterCallBack(this.expandCollapse);
   }
 
-  toggleInlineStyle: Function = (style: string): void => {
+  toggleInlineStyle: Function = (style: string) => {
     const newStyle = style === 'MONOSPACE' ? 'CODE' : style;
     const { editorState, onChange } = this.props;
     let newState = RichUtils.toggleInlineStyle(
@@ -65,30 +65,30 @@ export default class Inline extends Component {
     }
   };
 
-  expandCollapse: Function = (): void => {
+  expandCollapse: Function = () => {
     this.setState({
       expanded: this.signalExpanded,
     });
     this.signalExpanded = false;
   }
 
-  onExpandEvent: Function = (): void => {
+  onExpandEvent: Function = () => {
     this.signalExpanded = !this.state.expanded;
   };
 
-  doExpand: Function = (): void => {
+  doExpand: Function = () => {
     this.setState({
       expanded: true,
     });
   };
 
-  doCollapse: Function = (): void => {
+  doCollapse: Function = () => {
     this.setState({
       expanded: false,
     });
   };
 
-  render(): Object {
+  render() {
     const { config, translations } = this.props;
     const { expanded, currentStyles } = this.state
     const InlineComponent = config.component || LayoutComponent;

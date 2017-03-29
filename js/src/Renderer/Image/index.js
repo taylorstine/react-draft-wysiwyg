@@ -17,19 +17,19 @@ const getImageComponent = (config) => {
       hovered: false,
     };
 
-    setEntityAlignmentLeft: Function = (): void => {
+    setEntityAlignmentLeft: Function = () => {
       this.setEntityAlignment('left');
     };
 
-    setEntityAlignmentRight: Function = (): void => {
+    setEntityAlignmentRight: Function = () => {
       this.setEntityAlignment('right');
     };
 
-    setEntityAlignmentCenter: Function = (): void => {
+    setEntityAlignmentCenter: Function = () => {
       this.setEntityAlignment('none');
     };
 
-    setEntityAlignment: Function = (alignment): void => {
+    setEntityAlignment: Function = (alignment) => {
       const { block, contentState } = this.props;
       const entityKey = block.getEntityAt(0);
       contentState.mergeEntityData(
@@ -41,14 +41,14 @@ const getImageComponent = (config) => {
       });
     };
 
-    toggleHovered: Function = (): void => {
+    toggleHovered: Function = () => {
       const hovered = !this.state.hovered;
       this.setState({
         hovered,
       });
     };
 
-    renderAlignmentOptions(): Object {
+    renderAlignmentOptions() {
       return (
         <div
           className="rdw-image-alignment-options-popup"
@@ -75,7 +75,7 @@ const getImageComponent = (config) => {
       );
     }
 
-    render(): Object {
+    render() {
       const { block, contentState } = this.props;
       const { hovered } = this.state;
       const { isReadOnly, isImageAlignmentEnabled } = config;

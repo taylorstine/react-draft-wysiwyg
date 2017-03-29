@@ -10,7 +10,7 @@ export default function addMention(
   separator: string,
   trigger: string,
   suggestion: Object,
-): void {
+) {
   const { value, url } = suggestion;
   const entityKey = editorState
     .getCurrentContent()

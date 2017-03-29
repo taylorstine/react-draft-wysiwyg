@@ -7,11 +7,11 @@ export default {
     });
   },
 
-  registerCallBack: (callBack): void => {
+  registerCallBack: (callBack) => {
     callBacks.push(callBack);
   },
 
-  deregisterCallBack: (callBack): void => {
+  deregisterCallBack: (callBack) => {
     callBacks = callBacks.filter(cb => cb !== callBack);
   },
 };

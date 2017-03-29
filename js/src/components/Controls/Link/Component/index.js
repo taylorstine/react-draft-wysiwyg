@@ -38,24 +38,24 @@ class LayoutComponent extends Component {
     }
   }
 
-  removeLink: Function = (): void => {
+  removeLink: Function = () => {
     const { onChange } = this.props;
     onChange('remove');
   };
 
-  addLink: Function = (): void => {
+  addLink: Function = () => {
     const { onChange } = this.props;
     const { linkTitle, linkTarget } = this.state;
     onChange('add', linkTitle, linkTarget);
   };
 
-  updateValue: Function = (event: Object): void => {
+  updateValue: Function = (event: Object) => {
     this.setState({
       [`${event.target.name}`]: event.target.value,
     });
   };
 
-  hideModal: Function = (): void => {
+  hideModal: Function = () => {
     this.setState({
       showModal: false,
     });
@@ -71,7 +71,7 @@ class LayoutComponent extends Component {
     });
   }
 
-  forceExpandAndShowModal: Function = (): void => {
+  forceExpandAndShowModal: Function = () => {
     const { doExpand, currentState: { link, selectionText } } = this.props;
     doExpand();
     this.setState({
@@ -130,7 +130,7 @@ class LayoutComponent extends Component {
     );
   }
 
-  renderInFlatList(): Object {
+  renderInFlatList() {
     const {
       config: { options, link, unlink, className },
       currentState,
@@ -167,7 +167,7 @@ class LayoutComponent extends Component {
     );
   }
 
-  renderInDropDown(): Object {
+  renderInDropDown() {
     const {
       expanded,
       onExpandEvent,
@@ -224,7 +224,7 @@ class LayoutComponent extends Component {
     );
   }
 
-  render(): Object {
+  render() {
     const { config: { inDropdown } } = this.props;
     if (inDropdown) {
       return this.renderInDropDown();

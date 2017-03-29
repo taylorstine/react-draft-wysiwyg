@@ -25,24 +25,24 @@ export default class LayoutComponent extends Component {
     { type: 'indent', value: 'indent' },
     { type: 'outdent', value: 'outdent' }];
 
-  toggleBlockType: Function = (blockType: String): void => {
+  toggleBlockType: Function = (blockType: String) => {
     const { onChange } = this.props;
     onChange(blockType);
   };
 
-  indent: Function = (): void => {
+  indent: Function = () => {
     const { onChange } = this.props;
     onChange('indent');
   };
 
-  outdent: Function = (): void => {
+  outdent: Function = () => {
     const { onChange } = this.props;
     onChange('outdent');
   };
 
   // todo: evaluate refactoring this code to put a loop there and in other places also in code
   // hint: it will require moving click handlers
-  renderInFlatList(): Object {
+  renderInFlatList() {
     const { config, currentState: { linkType } } = this.props;
     const { options, unordered, ordered, indent, outdent, className } = config;
     return (
@@ -91,7 +91,7 @@ export default class LayoutComponent extends Component {
     );
   }
 
-  renderInDropDown(): Object {
+  renderInDropDown() {
     const { config, expanded, doCollapse, doExpand, onExpandEvent, onChange, currentState: { linkType } } = this.props;
     const { options, className, dropdownClassName } = config;
     return (
@@ -127,7 +127,7 @@ export default class LayoutComponent extends Component {
     );
   }
 
-  render(): Object {
+  render() {
     const { config: { inDropdown } } = this.props;
     if (inDropdown) {
       return this.renderInDropDown();

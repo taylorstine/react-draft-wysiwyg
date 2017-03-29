@@ -172,15 +172,15 @@ function getSuggestionComponent() {
       });
     }
 
-    setSuggestionReference: Function = (ref: Object): void => {
+    setSuggestionReference: Function = (ref: Object) => {
       this.suggestion = ref;
     };
 
-    setDropdownReference: Function = (ref: Object): void => {
+    setDropdownReference: Function = (ref: Object) => {
       this.dropdown = ref;
     };
 
-    closeSuggestionDropdown: Function = (): void => {
+    closeSuggestionDropdown: Function = () => {
       this.setState({
         showSuggestions: false,
       });

@@ -19,40 +19,40 @@ class Embedded extends Component {
     expanded: false,
   };
 
-  componentWillMount(): void {
+  componentWillMount() {
     const { modalHandler } = this.props;
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     const { modalHandler } = this.props;
     modalHandler.deregisterCallBack(this.expandCollapse);
   }
 
-  expandCollapse: Function = (): void => {
+  expandCollapse: Function = () => {
     this.setState({
       expanded: this.signalExpanded,
     });
     this.signalExpanded = false;
   }
 
-  onExpandEvent: Function = (): void => {
+  onExpandEvent: Function = () => {
     this.signalExpanded = !this.state.expanded;
   };
 
-  doExpand: Function = (): void => {
+  doExpand: Function = () => {
     this.setState({
       expanded: true,
     });
   };
 
-  doCollapse: Function = (): void => {
+  doCollapse: Function = () => {
     this.setState({
       expanded: false,
     });
   };
 
-  addEmbeddedLink: Function = (embeddedLink, height, width): void => {
+  addEmbeddedLink: Function = (embeddedLink, height, width) => {
     const { editorState, onChange } = this.props;
     const entityKey = editorState
       .getCurrentContent()
@@ -67,7 +67,7 @@ class Embedded extends Component {
     this.doCollapse();
   };
 
-  render(): Object {
+  render() {
     const { config, translations } = this.props;
     const { expanded } = this.state
     const EmbeddedComponent = config.component || LayoutComponent;

@@ -42,27 +42,27 @@ export default class ModalHandler {
     }
   }
 
-  closeModals = (event: Object): void => {
+  closeModals = (event: Object) => {
     this.closeAllModals(event);
   };
 
-  registerCallBack = (callBack): void => {
+  registerCallBack = (callBack) => {
     this.callBacks.push(callBack);
   };
 
-  deregisterCallBack = (callBack): void => {
+  deregisterCallBack = (callBack) => {
     this.callBacks = this.callBacks.filter(cb => cb !== callBack);
   };
 
-  setSuggestionCallback = (callBack): void => {
+  setSuggestionCallback = (callBack) => {
     this.suggestionCallback = callBack;
   };
 
-  removeSuggestionCallback = (): void => {
+  removeSuggestionCallback = () => {
     this.suggestionCallback = undefined;
   };
 
-  onSuggestionClick = ():void => {
+  onSuggestionClick = () => {
     this.suggestionFlag = true;
   }
 }

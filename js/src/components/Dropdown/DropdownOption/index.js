@@ -22,7 +22,7 @@ export default class DropDownOption extends Component {
     highlightedClassName: PropTypes.string,
   };
 
-  onClick: Function = (event): void => {
+  onClick: Function = (event) => {
     const { onSelect, onClick, value, disabled } = this.props;
     if (!disabled) {
       if (onSelect) {
@@ -35,17 +35,17 @@ export default class DropDownOption extends Component {
     }
   };
 
-  setHighlighted: Function = (): void => {
+  setHighlighted: Function = () => {
     const { setHighlighted, index } = this.props;
     setHighlighted(index);
   };
 
-  resetHighlighted: Function = (): void => {
+  resetHighlighted: Function = () => {
     const { setHighlighted } = this.props;
     setHighlighted(-1);
   };
 
-  render(): Object {
+  render() {
     const {
       children,
       active,

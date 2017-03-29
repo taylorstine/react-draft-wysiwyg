@@ -19,40 +19,40 @@ export default class Emoji extends Component {
     expanded: false,
   };
 
-  componentWillMount(): void {
+  componentWillMount() {
     const { modalHandler } = this.props;
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     const { modalHandler } = this.props;
     modalHandler.deregisterCallBack(this.expandCollapse);
   }
 
-  expandCollapse: Function = (): void => {
+  expandCollapse: Function = () => {
     this.setState({
       expanded: this.signalExpanded,
     });
     this.signalExpanded = false;
   }
 
-  onExpandEvent: Function = (): void => {
+  onExpandEvent: Function = () => {
     this.signalExpanded = !this.state.expanded;
   };
 
-  doExpand: Function = (): void => {
+  doExpand: Function = () => {
     this.setState({
       expanded: true,
     });
   };
 
-  doCollapse: Function = (): void => {
+  doCollapse: Function = () => {
     this.setState({
       expanded: false,
     });
   };
 
-  addEmoji: Function = (emoji: string): void => {
+  addEmoji: Function = (emoji: string) => {
     const { editorState, onChange } = this.props;
     const contentState = Modifier.insertText(
       editorState.getCurrentContent(),
@@ -64,7 +64,7 @@ export default class Emoji extends Component {
     this.doCollapse();
   };
 
-  render(): Object {
+  render() {
     const { config, translations } = this.props;
     const { expanded } = this.state
     const EmojiComponent = config.component || LayoutComponent;

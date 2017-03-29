@@ -20,7 +20,7 @@ export default class History extends Component {
     redoDisabled: false,
   };
 
-  componentWillMount(): void {
+  componentWillMount() {
     const { editorState, modalHandler } = this.props;
     if (editorState) {
       this.setState({
@@ -31,7 +31,7 @@ export default class History extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillReceiveProps(properties: Object): void {
+  componentWillReceiveProps(properties: Object) {
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {
       this.setState({
@@ -41,29 +41,29 @@ export default class History extends Component {
     }
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     const { modalHandler } = this.props;
     modalHandler.deregisterCallBack(this.expandCollapse);
   }
 
-  expandCollapse: Function = (): void => {
+  expandCollapse: Function = () => {
     this.setState({
       expanded: this.signalExpanded,
     });
     this.signalExpanded = false;
   }
 
-  onExpandEvent: Function = (): void => {
+  onExpandEvent: Function = () => {
     this.signalExpanded = !this.state.expanded;
   };
 
-  doExpand: Function = (): void => {
+  doExpand: Function = () => {
     this.setState({
       expanded: true,
     });
   };
 
-  doCollapse: Function = (): void => {
+  doCollapse: Function = () => {
     this.setState({
       expanded: false,
     });
@@ -77,7 +77,7 @@ export default class History extends Component {
     }
   }
 
-  render(): Object {
+  render() {
     const { config } = this.props;
     const { undoDisabled, redoDisabled, expanded } = this.state
     const HistoryComponent = config.component || LayoutComponent;

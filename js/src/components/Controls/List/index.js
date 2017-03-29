@@ -21,7 +21,7 @@ export default class List extends Component {
     currentBlockType: 'unstyled',
   };
 
-  componentWillMount(): void {
+  componentWillMount() {
     const { editorState, modalHandler } = this.props;
     if (editorState) {
       this.setState({
@@ -31,7 +31,7 @@ export default class List extends Component {
     modalHandler.registerCallBack(this.expandCollapse);
   }
 
-  componentWillReceiveProps(properties: Object): void {
+  componentWillReceiveProps(properties: Object) {
     if (properties.editorState &&
       this.props.editorState !== properties.editorState) {
       this.setState({
@@ -40,35 +40,35 @@ export default class List extends Component {
     }
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount() {
     const { modalHandler } = this.props;
     modalHandler.deregisterCallBack(this.expandCollapse);
   }
 
-  expandCollapse: Function = (): void => {
+  expandCollapse: Function = () => {
     this.setState({
       expanded: this.signalExpanded,
     });
     this.signalExpanded = false;
   }
 
-  onExpandEvent: Function = (): void => {
+  onExpandEvent: Function = () => {
     this.signalExpanded = !this.state.expanded;
   };
 
-  doExpand: Function = (): void => {
+  doExpand: Function = () => {
     this.setState({
       expanded: true,
     });
   };
 
-  doCollapse: Function = (): void => {
+  doCollapse: Function = () => {
     this.setState({
       expanded: false,
     });
   };
 
-  onChange: Function = (value: string): void => {
+  onChange: Function = (value: string) => {
     if (value === 'unordered-list-item' || value === 'ordered-list-item') {
       this.toggleBlockType(value);
     } else if (value === 'indent') {
@@ -78,7 +78,7 @@ export default class List extends Component {
     }
   };
 
-  toggleBlockType: Function = (blockType: String): void => {
+  toggleBlockType: Function = (blockType: String) => {
     const { onChange, editorState } = this.props;
     const newState = RichUtils.toggleBlockType(
       editorState,
@@ -89,7 +89,7 @@ export default class List extends Component {
     }
   };
 
-  adjustDepth: Function = (adjustment): void => {
+  adjustDepth: Function = (adjustment) => {
     const { onChange, editorState } = this.props;
     const newState = changeDepth(
       editorState,
@@ -101,7 +101,7 @@ export default class List extends Component {
     }
   };
 
-  render(): Object {
+  render() {
     const { config, translations } = this.props;
     const { expanded, currentBlockType } = this.state
     const ListComponent = config.component || LayoutComponent;

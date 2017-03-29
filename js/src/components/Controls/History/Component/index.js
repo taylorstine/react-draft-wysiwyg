@@ -25,7 +25,7 @@ export default class History extends Component {
     onChange(obj);
   }
 
-  renderInDropDown(): Object {
+  renderInDropDown() {
     const {
       config,
       expanded,
@@ -75,7 +75,7 @@ export default class History extends Component {
     );
   }
 
-  renderInFlatList(): Object {
+  renderInFlatList() {
     const {
       config: { options, undo, redo, className },
       currentState: { undoDisabled, redoDisabled },
@@ -108,7 +108,7 @@ export default class History extends Component {
     );
   }
 
-  render(): Object {
+  render() {
     const { config } = this.props;
     if (config.inDropdown) {
       return this.renderInDropDown();
