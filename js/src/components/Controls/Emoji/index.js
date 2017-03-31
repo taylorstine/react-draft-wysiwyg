@@ -54,12 +54,23 @@ export default class Emoji extends Component {
 
   addEmoji: Function = (emoji) => {
     const { editorState, onChange } = this.props;
-    const contentState = Modifier.insertText(
-      editorState.getCurrentContent(),
-      editorState.getSelection(),
-      emoji,
-      editorState.getCurrentInlineStyle(),
-    );
+    let contentState = null;
+    if (editorState.getSelection().isCollapsed()) {
+      contentState = Modifier.insertText(
+        editorState.getCurrentContent(),
+        editorState.getSelection(),
+        emoji,
+        editorState.getCurrentInlineStyle(),
+      );
+    } else {
+      contentState = Modifier.replaceText(
+        editorState.getCurrentContent(),
+        editorState.getSelection(),
+        emoji,
+        editorState.getCurrentInlineStyle(),
+      );
+    }
+
     onChange(EditorState.push(editorState, contentState, 'insert-characters'));
     this.doCollapse();
   };
